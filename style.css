@@ -1,0 +1,486 @@
+/* General Styling */
+:root {
+    --primary-color: #007bff; /* Deep Blue */
+    --secondary-color: #6c757d; /* Gray */
+    --accent-color: #28a745; /* Green */
+    --background-light: #f8f9fa;
+    --text-dark: #343a40;
+    --text-light: #ffffff;
+    --header-bg: rgba(20, 30, 40, 0.9); /* Slightly transparent dark blue */
+    --card-bg: #ffffff;
+    --border-color: #e9ecef;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: darken(var(--primary-color), 10%); /* This won't work in pure CSS, but conceptually for darker shade */
+    background: #0056b3; /* Hardcoded darker blue */
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+/* Navbar */
+.navbar {
+    background: var(--header-bg);
+    color: var(--text-light);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--accent-color); /* Highlight the "FP.A" */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 30px;
+}
+
+.navbar ul li a {
+    color: var(--text-light);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1920x800/007bff/ffffff?text=Abstract+Financial+Growth') no-repeat center center/cover;
+    color: var(--text-light);
+    text-align: center;
+    padding: 150px 0 100px 0; /* Adjust padding for fixed header */
+    height: 600px; /* Example height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* For the background pseudo-element */
+    margin-top: 70px; /* To account for fixed navbar height */
+}
+
+.hero-section h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.hero-section p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* Intro Services Section (under hero) */
+.intro-services {
+    background-color: var(--text-light);
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: -80px; /* Pull it up into the hero section */
+    position: relative;
+    z-index: 1; /* Ensure it's above other elements */
+    border-radius: 10px;
+}
+
+.intro-services .container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.service-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    flex: 1;
+    min-width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.service-card .icon {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-size: 1.4em;
+    color: var(--text-dark);
+}
+
+/* About Section */
+.about-section {
+    padding: 100px 0;
+    background-color: var(--background-light);
+    text-align: center;
+}
+
+.about-section .container {
+    display: flex;
+    justify-content: center;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; /* Align profile pic to top */
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 900px;
+}
+
+.profile-pic {
+    flex: 0 0 180px; /* Fixed width for image */
+    margin-right: 40px;
+    text-align: center; /* Center image within its flex item */
+}
+
+.profile-pic img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 0 8px rgba(0, 123, 255, 0.2); /* Outer halo */
+}
+
+.about-text {
+    flex: 1;
+    text-align: left;
+}
+
+.about-text h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: var(--secondary-color);
+}
+
+.timeline {
+    border-left: 2px solid var(--border-color);
+    padding-left: 20px;
+    margin-top: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.timeline-item .icon {
+    position: absolute;
+    left: -35px; /* Adjust to align with the border */
+    top: 0;
+    background: var(--primary-color);
+    color: var(--text-light);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    box-shadow: 0 0 0 5px var(--background-light); /* To make it pop */
+}
+
+.timeline-item p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 1em;
+    color: var(--text-dark);
+}
+
+/* Full Services Section */
+.full-services-section {
+    background-color: var(--text-light);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.full-services-section h2 {
+    font-size: 2.8em;
+    margin-bottom: 50px;
+    color: var(--text-dark);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-item {
+    background: var(--card-bg);
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.service-item:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.service-item i {
+    font-size: 3.5em;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.service-item h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 1em;
+    color: var(--secondary-color);
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--background-light);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: var(--secondary-color);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.contact-form button {
+    align-self: flex-start; /* Align button to the left within the form */
+}
+
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-links a {
+    color: var(--primary-color);
+    font-size: 2em;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    background: var(--text-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar ul {
+        margin-top: 15px;
+        justify-content: center;
+    }
+    .navbar ul li {
+        margin: 0 15px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.8em;
+    }
+
+    .intro-services .container {
+        flex-direction: column;
+    }
+    .service-card {
+        margin-bottom: 20px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .profile-pic {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    .about-text {
+        text-align: center;
+    }
+    .timeline {
+        border-left: none;
+        padding-left: 0;
+        border-top: 2px solid var(--border-color);
+        padding-top: 20px;
+    }
+    .timeline-item {
+        position: static;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+    .timeline-item .icon {
+        position: static;
+        margin-bottom: 10px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .contact-form button {
+        align-self: center; /* Center button on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar ul li {
+        margin: 0 10px;
+        font-size: 0.9em;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2em;
+    }
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .about-section, .full-services-section, .contact-section {
+        padding: 60px 0;
+    }
+    .contact-form {
+        padding: 25px;
+    }
+}
